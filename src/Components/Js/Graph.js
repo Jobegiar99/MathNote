@@ -1,7 +1,7 @@
 import React from 'react'
 import { VictoryChart, VictoryLine, VictoryContainer, VictoryTheme } from 'victory';
 
-export default function Graph({gPoints}) {
+export default function Graph({gPoints, xf}) {
     return (
         <>
           <VictoryChart height={400} width={400}
@@ -11,7 +11,7 @@ export default function Graph({gPoints}) {
               style={{
                 data: {
                   stroke: "#c43a31",
-                  strokeWidth: ({ data }) => data.length
+                  strokeWidth: 5
                 },
                 labels: {
                   fontSize: 15,
@@ -20,6 +20,8 @@ export default function Graph({gPoints}) {
               }}
               data={gPoints}
               labels={({ datum }) => datum.x}
+              domain={{x:[0,50], y:[-19.5,23.5]}}
+              interpolation="natural"
             />
           </VictoryChart>
         </>

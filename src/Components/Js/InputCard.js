@@ -22,16 +22,16 @@ export default function InputCard() {
       var nEx= new parse(fx)
       xiRef.current.value = ''
       xfRef.current.value = ''
-      fxRef.current.value = ''
       for(var x=xi; x<=xf; x++){
         console.log(x)
-        var eq = new Equation (nEx,expr)
-        console.log(eq.solveFor("x").toString())
+        var eq = new Equation (nEx,x)
+        console.log("x= ",eq.solveFor("x").toString(), " y= ",x)
         setGpoints(prevGpoints => {
           return [...prevGpoints,{x: eq.solveFor("x").numer, y: x}]
         })
         
       }
+      nEx.value=''
     }
   }
   
@@ -46,7 +46,8 @@ export default function InputCard() {
         
       </form>
       <button onClick={handleXs}>Listo</button>
-        <Graph gPoints={gPoints}/>
+        <h1>{gPoints.x}   {gPoints.y}</h1>
+        <Graph gPoints={gPoints} xf={parseInt(xfRef.value)}/>
       
     </>
   )

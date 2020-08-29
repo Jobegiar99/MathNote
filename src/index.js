@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import InputCard from './Components/Js/InputCard'
 
 
 class App extends React.Component{
   render(){
     return(
-      <div>
-        
-      </div>
+      <InputCard/>
     )
   }
 }
