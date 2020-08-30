@@ -1,6 +1,10 @@
 import React, {useRef, useState} from 'react'
+import Button from 'react-bootstrap/Button';
 import Graph from './Graph'
 import  { Parser} from 'expr-eval'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function InputCard() {
     const xiRef = useRef()
@@ -47,16 +51,42 @@ export default function InputCard() {
   
   return (
     <>
-      <form>
-        <label>Y  =  <input ref = {fxRef} type="Text" ></input></label>
-        <br></br>
-        <label>Xi= <input ref = {xiRef} type="Number" style={{width:40}}></input></label>
-        <label> Xf = <input ref = {xfRef} type="Number" style={{width:40}}></input></label>
-        <label> step = <input ref = {stepRef} type="Number" style={{width:40}}></input></label>
-        
-      </form>
-      <button onClick={handleXs}>Listo</button>
-        <Graph gPoints={gPoints}/>
+      <Container>
+      <Row>
+        <Col>
+        <form>
+          <label>Y  =  <input ref = {fxRef} type="Text" ></input></label>
+          <br></br>
+          <label>Xi= <input ref = {xiRef} type="Number" style={{width:40}}></input></label>
+          <label> Xf = <input ref = {xfRef} type="Number" style={{width:40}}></input></label>
+          <label> step = <input ref = {stepRef} type="Number" style={{width:40}}></input></label>
+        </form>
+        </Col>
+        <Col>
+        <>
+        <style type="text/css">
+        {`
+        .btn-flat {
+          background-color: #2E4C80;
+          color: white;
+        }
+    
+        .btn-xxl {
+          padding: 0.5rem 1.0rem;
+          font-size: 1.0rem;
+        }
+        `}
+        </style>
+  
+        <Button onClick={handleXs} variant="flat" size="xxl">Music</Button>
+          <Graph gPoints={gPoints}/>
+        </>
+        </Col>  
+      </Row>
+      <Graph gPoints={gPoints}/>
+      <Row>
+      </Row>
+    </Container>
       
     </>
   )
