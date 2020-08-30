@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {GetInput} from "./Functions/playNotes";
 import InputCard from './Components/Js/InputCard'
-
 
 class App extends React.Component{
   render(){
