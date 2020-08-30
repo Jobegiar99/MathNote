@@ -1,3 +1,5 @@
+import {GetInput} from './playNotes';
+
 function thisWillExport(firstMat){
     var matrix = [];
     for(var i=0; i<firstMat.length; i++) {
@@ -46,5 +48,6 @@ function printThis(mat){
 }
 export const MakeMatrix = (info) => {
     var result = thisWillExport(info);
-    return result;
+    console.log(result);
+    //GetInput(result,null,1000);
 }
