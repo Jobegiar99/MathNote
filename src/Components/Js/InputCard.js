@@ -7,6 +7,7 @@ export default function InputCard() {
   const xfRef = useRef()
   const fxRef = useRef()
   const stepRef = useRef()
+  var equis = 0
   const [gPoints, setGpoints] = useState([])
   
   
