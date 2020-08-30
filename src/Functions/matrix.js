@@ -11,13 +11,9 @@ function thisWillExport(firstMat){
         var l=firstMat[i][1];
         var r=firstMat[i][2];
         var s=firstMat[i][3];
-        console.log(l+' '+r+' '+s)
         var x = getXarray(l, r, s);
-        console.log(x);
         for(var j=0; j<y.length; j++){
             matrix[i][x[j]+40]=y[j];
-            console.log(x[j]);
-            console.log(y[j]);
         }
     }
     return matrix;
@@ -26,13 +22,11 @@ function thisWillExport(firstMat){
 function getXarray(l, r, s){
     var x = [];
     var max =(r-l)/s;
-    console.log(max);
     var val = l;
     for(var i=0; i<=max; i++) {
         x[i] = val;
         val+=s;
-        val=roundFive(val); 
-        console.log(val);
+        val=roundFive(val);
     }
     return x
 }
