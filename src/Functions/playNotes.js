@@ -2,7 +2,7 @@ import {piano} from "./pianoDictionary";
 import { Howl, Howler } from 'howler';
 var delay = require('delay');
 
-export const GetInput = (info, play,speed) =>{
+export const GetInput = async(info, play,speed) =>{
     
     let valuesToGraph = []
     let i = 0, j = 4;
@@ -21,15 +21,7 @@ export const GetInput = (info, play,speed) =>{
         }
 
         let note = [];
-        for(let k = 0; k < info.lenth;k++){
-            if( i < info[k].length){
-                if(info[k][i] != null){
-                    note[k] = (piano[info[k][i]]);
-                }
-            }
-        }
-
-        if(note.length > 0){
+        for(let k = 0; k < info.lenth;k++){ 
             note.forEach( x => {
                 let toPlay = new Howl({
                     src : [x],
