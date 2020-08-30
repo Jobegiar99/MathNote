@@ -23,13 +23,13 @@ class Graph extends React.Component{
           key={i}
           data={d}
           style={{ data: { stroke: colors[Math.floor(Math.random() * colors.length -1)] } }}
-          labels={({ datum }) => datum.x[0]}
+          labels={({ datum }) => datum.y}
         />;
       i++;
     });
     return (
       <div>
-        <VictoryChart height={400} width={400} domain={{x:[this.props.minI,this.props.maxI], y:[-25.5,25.5]}}
+        <VictoryChart height={400} width={400} domain={{x:[this.props.minI,this.props.maxI], y:[-25,25]}}
           containerComponent={<VictoryContainer responsive={false} />} 
           theme={VictoryTheme.material} > 
             {lines}
