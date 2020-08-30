@@ -3,7 +3,7 @@ import { Howl, Howler } from 'howler';
 import { wait } from "@testing-library/react";
 const delay = require('delay');
 
-export const  GetInput = async(info,updateGraph,speed,minI,maxI) =>{
+export const  GetInput = async(info,updateGraph,speed,minI,maxI,changePlaying) =>{
 
     let i = 0, j = 4;
     let a = minI, b = maxI;
@@ -47,5 +47,6 @@ export const  GetInput = async(info,updateGraph,speed,minI,maxI) =>{
         await delay(speed);
        
     }
+    changePlaying();
 }
 

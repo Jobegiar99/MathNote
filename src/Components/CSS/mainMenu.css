@@ -1,0 +1,10 @@
+#inputCard{
+    overflow: auto;
+    max-height: 400px;
+}
+
+#noteInfo{
+    overflow: auto;
+    max-height: 400px;
+    margin-right: -2em;
+}
