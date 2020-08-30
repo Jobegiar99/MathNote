@@ -1,9 +1,11 @@
 import React from 'react'
 import { VictoryChart, VictoryLine, VictoryContainer, VictoryTheme } from 'victory';
 
-export default function Graph({gPoints, xf}) {
+export default function Graph(gPoints) {
+    const arr = {}
     return (
         <>
+            {console.log(gPoints)}
           <VictoryChart height={400} width={400}
           containerComponent={<VictoryContainer responsive={false} />} 
           theme={VictoryTheme.material} > 
@@ -18,7 +20,7 @@ export default function Graph({gPoints, xf}) {
                   fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
                 }
               }}
-              data={gPoints}
+              data={[]}
               labels={({ datum }) => datum.x}
               domain={{x:[0,50], y:[-19.5,23.5]}}
               interpolation="natural"
