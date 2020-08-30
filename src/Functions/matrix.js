@@ -1,11 +1,3 @@
-var og = [
-    [[0,1,2],1,3,1],
-    [[1,2,3],1,3,1]
-]
-console.log(og.length);
-var nueva = thisWillExport(og);
-printThis(nueva);
-
 function thisWillExport(firstMat){
     var matrix = [];
     for(var i=0; i<firstMat.length; i++) {
@@ -58,7 +50,7 @@ function printThis(mat){
         console.log(mat[i]);
     }
 }
-export const GetInput = (info) => {
+export const MakeMatrix = (info) => {
     var result = thisWillExport(info);
     return result;
 }
