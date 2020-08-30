@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
 import  { Parser} from 'expr-eval'
 import {Card, Container, Row, Col, Button, Form} from 'react-bootstrap'
-
+import "../CSS/inputCard.css";
 var parser= new Parser()
 
 class InputCard extends React.Component {
@@ -11,7 +11,9 @@ class InputCard extends React.Component {
       xi : 0,
       xf : 1,
       fx : "",
-      step : 1
+      step : 1,
+      background: {background: 'white'},
+      text: "confirm"
     };
   }
 
@@ -22,6 +24,9 @@ class InputCard extends React.Component {
 
   handleText = (evt) =>{
     this.setState({fx: evt.target.value})
+    if(this.state.background != {background: 'white'}){
+      this.setState({background: {background: 'white'}, text : "confirm"});
+    }
   }
 
   handleXs = (evt) => {
@@ -48,6 +53,7 @@ class InputCard extends React.Component {
           //console.log(gPoints.values())
         }
         //console.log(aux);
+        this.setState({background:{background:'paleturquoise'}, text : "confirmed!"});
         this.props.updateSong(aux,this.state.xi,this.state.xf,this.state.step, this.props.index);
       }catch(error){
         alert("type a valid function.");
@@ -78,7 +84,7 @@ class InputCard extends React.Component {
         </form>
         
       </div>*/
-          <Card>
+          <Card id = "inputCardComp">
             <Card.Header as="h3">Write a Function</Card.Header>
             <Card.Body>
               <Form>
@@ -95,12 +101,12 @@ class InputCard extends React.Component {
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Y  =  <Form.Control name = "fx" type="text" onChange = {this.handleText}></Form.Control></Form.Label>
+                      <Form.Label>Y  =  <Form.Control id = "buttonFx" style = {this.state.background} name = "fx" type="text" onChange = {this.handleText}></Form.Control></Form.Label>
                     </Col>
                   </Row>
                   <Row>
                     <Col xs="12">
-                      <Button  onClick={this.handleConfirm}>confirm</Button> 
+                      <Button  onClick={this.handleConfirm}>{this.state.text}</Button> 
                     </Col>
                   </Row>
               </Form>
