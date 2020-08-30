@@ -4,6 +4,7 @@ import { wait } from "@testing-library/react";
 const delay = require('delay');
 
 export const  GetInput = async(info,updateGraph,speed,minI,maxI) =>{
+
     let i = 0, j = 4;
     let a = minI, b = maxI;
     while( i < info[0].length){
