@@ -3,25 +3,21 @@ import { Howl, Howler } from 'howler';
 import { wait } from "@testing-library/react";
 const delay = require('delay');
 
-export const  GetInput = async(info,updateGraph,speed) =>{
+export const  GetInput = async(info,updateGraph,speed,minI,maxI) =>{
     let i = 0, j = 4;
+    let a = minI, b = maxI;
     while( i < info[0].length){
 
-        let valuesToGraph = [];
+        let valuesToGraph = []
+        for(let k = 0; k <info.length;k++){
+            let temp = info[k].slice(i,j + 1);
+            valuesToGraph[k] = temp;
+        }
 
         //add values that will be sent to graph
-        for(let l = i; l <= j && l < info.length;l++){
-
-            let temp = [];
-
-            for(let k = l; k < info[l].length;k++){
-                temp.push(info[l][k])
-            }
-
-            valuesToGraph.push(temp);
-
-        }
-        console.log(valuesToGraph);
+    
+        console.log(valuesToGraph)
+        if(valuesToGraph) updateGraph(valuesToGraph,a,b);
 
         //play notes
         let note = [];
@@ -31,23 +27,24 @@ export const  GetInput = async(info,updateGraph,speed) =>{
             }
 
         }
-        console.log(note);
+        let toPlay = null;
+        let toStop = null;
         if(note.length > 0){
             note.forEach(x => {
 
-            let toPlay= new Howl({
+            toPlay= new Howl({
                     src: [x],
                     volume : 1
             }); 
             toPlay.play();
             });
-
         }
-
-        //updateGraph(valuesToGraph,i,j);
-        await delay(speed);
-
         i++;
         j++;
+        a++;
+        b++;
+        await delay(speed);
+       
     }
 }
+

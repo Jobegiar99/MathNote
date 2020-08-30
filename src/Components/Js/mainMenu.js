@@ -2,6 +2,7 @@ import React,{Component} from "react"
 import {GetInput} from "../../Functions/playNotes";
 import {MakeMatrix} from "../../Functions/matrix";
 import InputCard from "./InputCard";
+import Graph from "./Graph"
 class MainMenu extends React.Component{
 
     constructor(){
@@ -15,7 +16,10 @@ class MainMenu extends React.Component{
                     index = {0}             
                 />
             ],
-            idControl : 2
+            idControl : 2,
+            data : [],
+            minI : -25,
+            maxI : 25
         };
     }
 
@@ -41,11 +45,24 @@ class MainMenu extends React.Component{
         this.setState({inputCards: temp});
     }
 
+    updateGraph = (gData,minIn,maxIn) =>{
+        let info = []
+        for(let i = 0; i < gData.length;i++){
+            let temp = [];
+            for( let j = 0, k = minIn; j < gData[i].length;j++, k++){
+                temp[j] = {x : k, y : gData[i][j]}
+            }
+            info[i] = temp
+        }
+
+        this.setState({data : info, minI: minIn, maxI: maxIn})
+
+    }
 
     play = () =>{
-        let song = []
+        let song = [];
         let speed = this.state.speed;
-
+        let maxI= Number.MIN_SAFE_INTEGER , minI = Number.MAX_SAFE_INTEGER;
         if(speed < 0){
             speed = 1000;
         }
@@ -56,8 +73,19 @@ class MainMenu extends React.Component{
                 j++;
             }
         }
-        console.log(song, "HI")
-        GetInput(MakeMatrix(song) , null, speed);
+
+        for(let i = 0; i < song.length;i++){
+
+            if(song[i][1] < minI) minI = song[i][1];
+
+            if(song[i][2] > maxI) maxI = song[i][2];
+        }
+
+        this.setState({minI : this.state.minI + 1});
+
+        if(song.length > 0)
+            GetInput(MakeMatrix(song) , this.updateGraph, speed,minI,maxI);
+        else alert("Add a function first!");
     }
 
     render(){
@@ -72,6 +100,13 @@ class MainMenu extends React.Component{
                 <input name = "speed" type = "number" min = {1} onChange = {this.handleChange}></input>
                 <br></br>
                 <button onClick = {this.play}>Play</button>
+                <Graph
+
+                    data = {this.state.data}
+                    minI = {this.state.minI}
+                    maxI = {this.state.maxI}
+                
+                />
             </div>
         )
     }
