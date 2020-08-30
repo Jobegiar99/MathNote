@@ -4,6 +4,8 @@ import {MakeMatrix} from "../../Functions/matrix";
 import InputCard from "./InputCard";
 import Graph from "./Graph"
 import { Howl, Howler } from 'howler'; 
+import {Container, Row, Col, Button, Form, Alert} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class MainMenu extends React.Component{
 
@@ -94,7 +96,7 @@ class MainMenu extends React.Component{
 
     render(){
         return(
-            <div>
+            /*<div>
                 If you want to cancel a function type Y = -50
                 <div>
                     {this.state.inputCards}
@@ -111,7 +113,40 @@ class MainMenu extends React.Component{
                     maxI = {this.state.maxI}
                 
                 />
-            </div>
+            </div>*/
+            <Container fluid>
+                
+                <div>
+                    {this.state.inputCards}
+                </div>
+                
+                <Row>
+                    <Col xs="12" md="4">
+                    <Alert variant="info">If you want to cancel a function type Y = -50</Alert>
+                        <Button onClick = {this.handleAdd}>Add another function</Button><br></br>
+                    </Col>
+                    
+                </Row>
+                <Form>
+                    <Row>
+                        <Col xs="12" md="4">
+                            <Form.Label>Song speed. 1000 = 1 second</Form.Label><br></br>
+                            <Form.Control placeholder = "speed" type = "number" min = {1} onChange = {this.handleChange}></Form.Control>
+                            <br></br>
+                        </Col>
+                    </Row>
+                </Form>
+                
+                <Button onClick = {this.play}>Play</Button>
+
+                <Graph
+
+                    data = {this.state.data}
+                    minI = {this.state.minI}
+                    maxI = {this.state.maxI}
+                
+                />
+            </Container> 
         )
     }
 }
