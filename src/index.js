@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-class App extends React.Component{
+import InputCard from './Components/Js/InputCard'
 
-  render(){    
+
+class App extends React.Component{
+  render(){
     return(
-      <div>
-      </div>
+      <InputCard/>
     )
   }
 }
@@ -15,4 +16,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
