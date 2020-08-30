@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mathnote.github.io/static/css/main.1bc8452a.chunk.css",
+    "main.js": "/mathnote.github.io/static/js/main.fb3f3732.chunk.js",
+    "main.js.map": "/mathnote.github.io/static/js/main.fb3f3732.chunk.js.map",
+    "runtime-main.js": "/mathnote.github.io/static/js/runtime-main.7355f4c0.js",
+    "runtime-main.js.map": "/mathnote.github.io/static/js/runtime-main.7355f4c0.js.map",
+    "static/css/2.11829350.chunk.css": "/mathnote.github.io/static/css/2.11829350.chunk.css",
+    "static/js/2.82411981.chunk.js": "/mathnote.github.io/static/js/2.82411981.chunk.js",
+    "static/js/2.82411981.chunk.js.map": "/mathnote.github.io/static/js/2.82411981.chunk.js.map",
+    "index.html": "/mathnote.github.io/index.html",
+    "precache-manifest.abdaed2fdb95abc8a1c3fe6fb6695f7c.js": "/mathnote.github.io/precache-manifest.abdaed2fdb95abc8a1c3fe6fb6695f7c.js",
+    "service-worker.js": "/mathnote.github.io/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/mathnote.github.io/static/css/2.11829350.chunk.css.map",
+    "static/css/main.1bc8452a.chunk.css.map": "/mathnote.github.io/static/css/main.1bc8452a.chunk.css.map",
+    "static/js/2.82411981.chunk.js.LICENSE.txt": "/mathnote.github.io/static/js/2.82411981.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7355f4c0.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.82411981.chunk.js",
+    "static/css/main.1bc8452a.chunk.css",
+    "static/js/main.fb3f3732.chunk.js"
+  ]
+}
