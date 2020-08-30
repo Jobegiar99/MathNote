@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-class App extends React.Component{
+import MainMenu from './Components/Js/mainMenu';
 
-  render(){    
+class App extends React.Component{
+  render(){
     return(
       <div>
+        <MainMenu/>
       </div>
     )
   }
 }
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
