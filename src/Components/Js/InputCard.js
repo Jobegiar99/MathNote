@@ -99,7 +99,7 @@ class InputCard extends React.Component {
                     </Col>
                   </Row>
                   <Row>
-                    <Col xs="12">
+                    <Col xs="12" md="4">
                       <Button  onClick={this.handleConfirm}>confirm</Button> 
                     </Col>
                   </Row>

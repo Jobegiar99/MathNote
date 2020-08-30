@@ -29,8 +29,8 @@ class Graph extends React.Component{
     });
     return (
       <div>
-        <VictoryChart height={400} width={400} domain={{x:[this.props.minI,this.props.maxI], y:[-25.5,25.5]}}
-          containerComponent={<VictoryContainer responsive={false} />} 
+        <VictoryChart  domain={{x:[this.props.minI,this.props.maxI], y:[-25.5,25.5]}}
+          containerComponent={<VictoryContainer responsive={true} />} 
           theme={VictoryTheme.material} > 
             {lines}
           </VictoryChart>

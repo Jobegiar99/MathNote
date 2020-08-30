@@ -115,6 +115,53 @@ class MainMenu extends React.Component{
                 />
             </div>*/
             <Container fluid>
+                <Row>
+                    <Col xs="12" md="6">
+                        <Alert variant="info">If you want to cancel a function type Y = -50</Alert>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs="12" md="6">
+                        <Row>
+                            <Col xs="12">{this.state.inputCards}</Col>
+                        </Row>
+                        <Row>
+                            <Col xs="12" md="6">
+                                <Button onClick = {this.handleAdd}>Add another function</Button><br></br>
+                            </Col>
+                        </Row>
+                        <Form>
+                        <Row>
+                            <Col xs="12" md="4">
+                                <Form.Label>Song speed. 1000 = 1 second</Form.Label><br></br>
+                                <Form.Control placeholder = "speed" type = "number" min = {1} onChange = {this.handleChange}></Form.Control>
+                                <br></br>
+                            </Col>
+                        </Row>
+                    </Form>
+                    
+                    <Button onClick = {this.play}>Play</Button>
+                    </Col>
+                    <Col xs="12" md="6">
+                            <Graph
+
+                                data = {this.state.data}
+                                minI = {this.state.minI}
+                                maxI = {this.state.maxI}
+
+                                />
+                    </Col>
+                </Row>
+            </Container>
+             
+        )
+    }
+}
+
+export default MainMenu;
+
+/*
+<Container fluid>
                 
                 <Row>
                     <Col xs="12" md="4">
@@ -127,7 +174,7 @@ class MainMenu extends React.Component{
                     
                         {this.state.inputCards}
                     </Col>
-                    <Col xs="12" md="4">
+                    <Col xs="12" md="8">
                     <Graph
 
                     data = {this.state.data}
@@ -157,9 +204,5 @@ class MainMenu extends React.Component{
                 </Form>
                 
                 <Button onClick = {this.play}>Play</Button>
-            </Container> 
-        )
-    }
-}
-
-export default MainMenu;
+            </Container>
+*/
