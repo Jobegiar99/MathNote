@@ -29,15 +29,18 @@ export default function InputCard() {
       fxRef.current.value = ''
       var parser= new Parser()
       var expr1 = parser.parse(fx)
-      //var aux = []
+      var aux = []
+      var aux1
       for(var i=xi; i<=xf; i+=step){
-        console.log(fx)
+        //console.log(fx)
         console.log("x= ", i, " y= ", expr1.evaluate({x : i}))
-        setGpoints(prevGpoints => {
-          return [...prevGpoints,{x: expr1.evaluate({x : i}), y: i, xi: xi, xf: xf, step: step}]
-        })
+        aux1 = parseInt(expr1.evaluate({x : i}))
+        aux.push(aux1)
         //console.log(gPoints.values())
       }
+      setGpoints(prevGpoints => {
+        return [...prevGpoints,{x: aux, xi: xi, xf: xf, step: step}]
+      })
     }
   }
   
@@ -52,7 +55,7 @@ export default function InputCard() {
         
       </form>
       <button onClick={handleXs}>Listo</button>
-        <Graph gPoints={gPoints} xf={parseInt(xfRef.value)}/>
+        <Graph gPoints={gPoints}/>
       
     </>
   )
