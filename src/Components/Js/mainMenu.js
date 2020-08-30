@@ -3,6 +3,8 @@ import {GetInput} from "../../Functions/playNotes";
 import {MakeMatrix} from "../../Functions/matrix";
 import InputCard from "./InputCard";
 import Graph from "./Graph"
+import { Howl, Howler } from 'howler'; 
+
 class MainMenu extends React.Component{
 
     constructor(){
@@ -19,7 +21,8 @@ class MainMenu extends React.Component{
             idControl : 2,
             data : [],
             minI : -25,
-            maxI : 25
+            maxI : 25,
+            playing : false
         };
     }
 
@@ -60,6 +63,7 @@ class MainMenu extends React.Component{
     }
 
     play = () =>{
+        
         let song = [];
         let speed = this.state.speed;
         let maxI= Number.MIN_SAFE_INTEGER , minI = Number.MAX_SAFE_INTEGER;
@@ -84,7 +88,7 @@ class MainMenu extends React.Component{
         this.setState({minI : this.state.minI + 1});
 
         if(song.length > 0)
-            GetInput(MakeMatrix(song) , this.updateGraph, speed,minI,maxI);
+            GetInput(MakeMatrix(song) , this.updateGraph, speed,minI,maxI, this.state.playing, this.updatePlaying);
         else alert("Add a function first!");
     }
 
@@ -99,7 +103,7 @@ class MainMenu extends React.Component{
                 <label>Song speed. 1000 = 1 second</label><br></br>
                 <input name = "speed" type = "number" min = {1} onChange = {this.handleChange}></input>
                 <br></br>
-                <button onClick = {this.play}>Play</button>
+                <button onClick = {this.play} >Play</button>
                 <Graph
 
                     data = {this.state.data}

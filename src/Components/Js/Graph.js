@@ -23,7 +23,7 @@ class Graph extends React.Component{
           key={i}
           data={d}
           style={{ data: { stroke: colors[Math.floor(Math.random() * colors.length -1)] } }}
-          labels={({ datum }) => datum.x}
+          labels={({ datum }) => datum.x[0]}
         />;
       i++;
     });
