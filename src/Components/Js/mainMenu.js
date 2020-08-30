@@ -24,7 +24,7 @@ class MainMenu extends React.Component{
             data : [],
             minI : -25,
             maxI : 25,
-            playing : false
+            playing : true
         };
     }
 
