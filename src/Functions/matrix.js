@@ -59,4 +59,5 @@ export const MakeMatrix = (info) => {
     var result = thisWillExport(info);
     console.log(result);
     //GetInput(result,null,1000);
+    return result;
 }
