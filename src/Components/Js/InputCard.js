@@ -1,37 +1,43 @@
 import React, {useRef, useState} from 'react'
 import Graph from './Graph'
-import { Expression, Equation, parse } from 'algebra.js' 
+import  { Parser} from 'expr-eval'
 
 export default function InputCard() {
     const xiRef = useRef()
   const xfRef = useRef()
   const fxRef = useRef()
-
+  const stepRef = useRef()
   const [gPoints, setGpoints] = useState([])
-  var expr = new Expression("y")
   
-
+  
+ 
   
 
   function handleXs(){
-    const xi = parseInt(xiRef.current.value)
-    const xf = parseInt(xfRef.current.value) 
+    let xi = parseInt(xiRef.current.value)
+    let xf = parseInt(xfRef.current.value) 
+    const step = parseInt(stepRef.current.value)
     const fx= fxRef.current.value
-    if (xi === '' || xf === '' || fx === '') return
+    
+    
+    if (xi === '' || xf === '' || fx === '' || stepRef === '') return
     else{
-      var nEx= new parse(fx)
+      xi = ((xi < xf) ? xi : xf) 
       xiRef.current.value = ''
       xfRef.current.value = ''
-      for(var x=xi; x<=xf; x++){
-        console.log(x)
-        var eq = new Equation (nEx,x)
-        console.log("x= ",eq.solveFor("x").toString(), " y= ",x)
+      stepRef.current.value = ''
+      fxRef.current.value = ''
+      var parser= new Parser()
+      var expr1 = parser.parse(fx)
+      //var aux = []
+      for(var i=xi; i<=xf; i+=step){
+        console.log(fx)
+        console.log("x= ", i, " y= ", expr1.evaluate({x : i}))
         setGpoints(prevGpoints => {
-          return [...prevGpoints,{x: eq.solveFor("x").numer, y: x}]
+          return [...prevGpoints,{x: expr1.evaluate({x : i}), y: i, xi: xi, xf: xf, step: step}]
         })
-        
+        //console.log(gPoints.values())
       }
-      nEx.value=''
     }
   }
   
@@ -41,12 +47,11 @@ export default function InputCard() {
         <label>Y  =  <input ref = {fxRef} type="Text" ></input></label>
         <br></br>
         <label>Xi= <input ref = {xiRef} type="Number" style={{width:40}}></input></label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Xf = <input ref = {xfRef} type="Number" style={{width:40}}></input></label>
+        <label> Xf = <input ref = {xfRef} type="Number" style={{width:40}}></input></label>
+        <label> step = <input ref = {stepRef} type="Number" style={{width:40}}></input></label>
         
       </form>
       <button onClick={handleXs}>Listo</button>
-        <h1>{gPoints.x}   {gPoints.y}</h1>
         <Graph gPoints={gPoints} xf={parseInt(xfRef.value)}/>
       
     </>
