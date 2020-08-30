@@ -7,8 +7,14 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "algebra.js": "^0.2.6",
+
     "expr-eval": "^2.0.2",
     "nerdamer": "^1.1.5",
+
+    "audio-manager": "^0.1.18",
+    "delay": "^4.4.0",
+    "howler": "^2.2.0",
+
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
