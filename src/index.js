@@ -16,7 +16,7 @@ class App extends React.Component{
     return(
       <div>
         <button onClick = {this.play}></button>
-        
+        <InputCard/>
       </div>
     )
   }
