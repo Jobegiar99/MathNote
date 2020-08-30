@@ -255,7 +255,7 @@ class MainMenu extends React.Component{
                     </Row>
                 </Form>
             
-                <Button onClick = {this.play} style = {this.state.playing}>Play</Button>
+                <Button onClick = {this.play}>Play</Button>
             </Container> 
         )
     }
