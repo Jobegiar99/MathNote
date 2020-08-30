@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react'
 import  { Parser} from 'expr-eval'
+import {Card, Container, Row, Col, Button, Form} from 'react-bootstrap'
 
 var parser= new Parser()
 
@@ -63,7 +64,7 @@ class InputCard extends React.Component {
 
   render(){
     return (
-      <div>
+      /*<div>
         <form>
           
           <label>Xi= <input name = "xi" type="number" step = '1' style={{width:40}} onChange = {this.handleChange}></input></label>
@@ -76,7 +77,35 @@ class InputCard extends React.Component {
           <button  onClick={this.handleConfirm} style = {{marginLeft: "2.5em"}}>confirm</button> 
         </form>
         
-      </div>
+      </div>*/
+          <Card>
+            <Card.Header as="h3">Write a Function</Card.Header>
+            <Card.Body>
+              <Form>
+                  <Row>
+                    <Col xs="12" md="4">
+                      <Form.Label>Xi= <Form.Control name = "xi" type="number" step = '1'  onChange = {this.handleChange}></Form.Control></Form.Label>
+                    </Col>
+                    <Col xs="12" md="4">
+                      <Form.Label> Xf = <Form.Control name = "xf" type="number" step = '1'  onChange = {this.handleChange}></Form.Control></Form.Label>
+                    </Col>
+                    <Col xs="12" md="4">
+                      <Form.Label> step = <Form.Control name = "step" min = {1} type="number"  onChange = {this.handleChange}></Form.Control></Form.Label>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label>Y  =  <Form.Control name = "fx" type="text" onChange = {this.handleText}></Form.Control></Form.Label>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs="12">
+                      <Button  onClick={this.handleConfirm}>confirm</Button> 
+                    </Col>
+                  </Row>
+              </Form>
+            </Card.Body>
+          </Card>
     )
   }
 }
