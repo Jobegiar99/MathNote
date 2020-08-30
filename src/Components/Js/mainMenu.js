@@ -4,7 +4,7 @@ import {MakeMatrix} from "../../Functions/matrix";
 import InputCard from "./InputCard";
 import Graph from "./Graph"
 import { Howl, Howler } from 'howler'; 
-import {Container, Row, Col, Button, Form, Alert} from 'react-bootstrap'
+import {Container, Row, Col, Button, Form, Alert, Modal} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class MainMenu extends React.Component{
@@ -116,13 +116,32 @@ class MainMenu extends React.Component{
             </div>*/
             <Container fluid>
                 
-                <div>
-                    {this.state.inputCards}
-                </div>
-                
                 <Row>
                     <Col xs="12" md="4">
                     <Alert variant="info">If you want to cancel a function type Y = -50</Alert>
+                    </Col>
+                </Row>
+                <Row>
+
+                    <Col xs="12" md="4">
+                    
+                        {this.state.inputCards}
+                    </Col>
+                    <Col xs="12" md="4">
+                    <Graph
+
+                    data = {this.state.data}
+                    minI = {this.state.minI}
+                    maxI = {this.state.maxI}
+                
+                    />
+                    
+                    </Col>
+                </Row>
+                
+                <Row>
+                    <Col xs="12" md="4">
+                    
                         <Button onClick = {this.handleAdd}>Add another function</Button><br></br>
                     </Col>
                     
@@ -138,14 +157,6 @@ class MainMenu extends React.Component{
                 </Form>
                 
                 <Button onClick = {this.play}>Play</Button>
-
-                <Graph
-
-                    data = {this.state.data}
-                    minI = {this.state.minI}
-                    maxI = {this.state.maxI}
-                
-                />
             </Container> 
         )
     }

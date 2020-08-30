@@ -78,8 +78,6 @@ class InputCard extends React.Component {
         </form>
         
       </div>*/
-      <Row>
-        <Col xs="12" md="4">
           <Card>
             <Card.Header as="h3">Write a Function</Card.Header>
             <Card.Body>
@@ -108,8 +106,6 @@ class InputCard extends React.Component {
               </Form>
             </Card.Body>
           </Card>
-        </Col>
-      </Row>
     )
   }
 }
